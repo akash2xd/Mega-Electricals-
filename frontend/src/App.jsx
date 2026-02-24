@@ -17,7 +17,7 @@ import Auth from './components/Auth';
 import Contact from './components/Contact';
 import Store from './components/Store';
 import ProductDetails from './components/ProductDetails';
-import Cart from './components/Cart'; 
+import Cart from './components/Cart';
 import BulkInquiry from './components/BulkInquiry';
 import AdminPanel from './components/AdminPanel';
 import MyOrders from './components/MyOrders';
@@ -72,7 +72,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300 antialiased pt-[80px] lg:pt-[140px] min-h-screen">
+        <div className="min-h-screen bg-stone-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 transition-colors duration-300 antialiased pt-[80px] lg:pt-[140px]">
           <Routes>
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/login" element={<Auth />} />

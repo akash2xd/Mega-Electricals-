@@ -67,40 +67,40 @@ const MyOrders = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-slate-950">
-        <Loader2 className="w-12 h-12 text-emerald-500 animate-spin mb-4" />
-        <p className="font-black uppercase tracking-[0.3em] text-slate-400 text-[10px]">Syncing Personal Activity...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-stone-50 dark:bg-neutral-950">
+        <Loader2 className="w-12 h-12 text-amber-500 animate-spin mb-4" />
+        <p className="font-black uppercase tracking-[0.3em] text-neutral-400 text-[10px]">Syncing Personal Activity...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 px-4 sm:px-8 xl:px-12 transition-colors duration-300">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 py-12 px-4 sm:px-8 xl:px-12 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         
         {/* --- HEADER --- */}
         <div className="mb-12">
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl lg:text-5xl font-black text-slate-950 dark:text-white uppercase tracking-tighter italic leading-none">
-              Your <span className="text-emerald-500 not-italic">Activity</span>
+            <h1 className="text-4xl lg:text-5xl font-black text-neutral-950 dark:text-white uppercase tracking-tighter italic leading-none">
+              Your <span className="text-amber-500 not-italic">Activity</span>
             </h1>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mt-3 font-medium">
+            <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-3 font-medium">
               Manage your purchases and corporate enquiries in one central hub.
             </p>
           </motion.div>
         </div>
 
         {/* --- TAB SWITCHER --- */}
-        <div className="flex bg-white dark:bg-slate-900 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm mb-10 w-fit">
+        <div className="flex bg-white dark:bg-neutral-900 p-1.5 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm mb-10 w-fit">
           <button 
             onClick={() => setActiveTab('retail')}
-            className={`flex items-center gap-2 px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${activeTab === 'retail' ? 'bg-slate-950 text-white shadow-lg' : 'text-slate-400'}`}
+            className={`flex items-center gap-2 px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${activeTab === 'retail' ? 'bg-neutral-950 text-white shadow-lg' : 'text-neutral-400'}`}
           >
             <ShoppingBag size={14} /> Retail Orders
           </button>
           <button 
             onClick={() => setActiveTab('b2b')}
-            className={`flex items-center gap-2 px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${activeTab === 'b2b' ? 'bg-emerald-600 text-white shadow-lg' : 'text-slate-400'}`}
+            className={`flex items-center gap-2 px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${activeTab === 'b2b' ? 'bg-amber-600 text-white shadow-lg' : 'text-neutral-400'}`}
           >
             <Briefcase size={14} /> B2B Leads
           </button>
@@ -145,9 +145,9 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
     switch(status) {
       case 'Delivered':
         return { 
-          bg: 'bg-emerald-50 dark:bg-emerald-950/40', 
-          text: 'text-emerald-600', 
-          border: 'border-emerald-100 dark:border-emerald-800', 
+          bg: 'bg-amber-50 dark:bg-amber-950/40', 
+          text: 'text-amber-600', 
+          border: 'border-amber-100 dark:border-amber-800', 
           icon: <CheckCircle size={10} /> 
         };
       case 'Shipped':
@@ -177,9 +177,9 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
   const statusStyle = getStatusStyles(order.status);
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden transition-all">
+    <div className="bg-white dark:bg-neutral-900 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-800 shadow-sm overflow-hidden transition-all">
       <div 
-        className="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+        className="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
         onClick={onToggle}
       >
         <div className="flex items-center gap-6">
@@ -188,11 +188,11 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
           </div>
           <div>
             <div className="flex items-center gap-3 mb-1">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">ORDER ID: {order._id.slice(-8).toUpperCase()}</p>
-                <span className="text-[10px] font-bold text-slate-300">|</span>
-                <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1 italic"><Clock size={10} /> {new Date(order.createdAt).toLocaleDateString()}</span>
+                <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">ORDER ID: {order._id.slice(-8).toUpperCase()}</p>
+                <span className="text-[10px] font-bold text-neutral-300">|</span>
+                <span className="text-[10px] font-bold text-neutral-400 flex items-center gap-1 italic"><Clock size={10} /> {new Date(order.createdAt).toLocaleDateString()}</span>
             </div>
-            <h3 className="font-black text-slate-950 dark:text-white text-2xl italic tracking-tighter">₹{order.totalPrice?.toLocaleString()}</h3>
+            <h3 className="font-black text-neutral-950 dark:text-white text-2xl italic tracking-tighter">₹{order.totalPrice?.toLocaleString()}</h3>
             <div className="flex items-center gap-3 mt-3">
               <span className={`flex items-center gap-1.5 text-[9px] font-black uppercase px-3 py-1.5 rounded-full border ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}>
                 {statusStyle.icon} {order.status}
@@ -205,12 +205,12 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
             order.status === 'Shipped' 
               ? 'bg-blue-600 text-white animate-pulse' 
               : order.status === 'Delivered'
-              ? 'bg-emerald-600 text-white'
-              : 'bg-slate-950 dark:bg-white text-white dark:text-slate-950'
+              ? 'bg-amber-600 text-white'
+              : 'bg-neutral-950 dark:bg-white text-white dark:text-neutral-950'
           }`}>
             {order.status === 'Shipped' ? 'Track Package' : order.status === 'Delivered' ? 'Leave Review' : 'View Details'}
           </button>
-          <ChevronDown className={`text-slate-300 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`text-neutral-300 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
         </div>
       </div>
 
@@ -218,19 +218,19 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
         {isExpanded && (
           <motion.div 
             initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}
-            className="overflow-hidden bg-slate-50/30 dark:bg-slate-950/20 border-t border-slate-100 dark:border-slate-800"
+            className="overflow-hidden bg-neutral-50/30 dark:bg-neutral-950/20 border-t border-neutral-100 dark:border-neutral-800"
           >
             <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div className="space-y-4">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 italic">Components Summary</p>
+                <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-4 italic">Components Summary</p>
                 {order.items?.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-4 bg-white dark:bg-slate-900 p-5 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
-                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex-shrink-0">
+                  <div key={idx} className="flex items-center gap-4 bg-white dark:bg-neutral-900 p-5 rounded-[1.5rem] border border-neutral-100 dark:border-neutral-800 shadow-sm">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 flex-shrink-0">
                       <img src={renderImage(item.productId)} alt="" className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1">
-                      <p className="font-black text-slate-950 dark:text-white text-xs uppercase tracking-tighter leading-tight mb-1">{item.name}</p>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase italic">{item.qty} Unit(s) × ₹{item.price?.toLocaleString()}</p>
+                      <p className="font-black text-neutral-950 dark:text-white text-xs uppercase tracking-tighter leading-tight mb-1">{item.name}</p>
+                      <p className="text-[10px] font-bold text-neutral-400 uppercase italic">{item.qty} Unit(s) × ₹{item.price?.toLocaleString()}</p>
                     </div>
                   </div>
                 ))}
@@ -238,20 +238,20 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-5 flex items-center gap-2 italic"><MapPin size={12}/> Delivery To</p>
-                  <div className="text-[11px] font-bold text-slate-600 dark:text-slate-400 space-y-1.5 border-l-2 border-slate-200 dark:border-slate-800 pl-4">
-                    <p className="text-slate-900 dark:text-white font-black uppercase text-xs">{order.shippingDetails?.fullName || 'N/A'}</p>
+                  <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-5 flex items-center gap-2 italic"><MapPin size={12}/> Delivery To</p>
+                  <div className="text-[11px] font-bold text-neutral-600 dark:text-neutral-400 space-y-1.5 border-l-2 border-neutral-200 dark:border-neutral-800 pl-4">
+                    <p className="text-neutral-900 dark:text-white font-black uppercase text-xs">{order.shippingDetails?.fullName || 'N/A'}</p>
                     <p className="leading-relaxed">{order.shippingDetails?.address || 'Address details missing'}</p>
                     <p>{order.shippingDetails?.city} - {order.shippingDetails?.pincode}</p>
-                    <p className="pt-2 text-emerald-600 font-black">Mob: {order.shippingDetails?.phone || 'No Contact'}</p>
+                    <p className="pt-2 text-amber-600 font-black">Mob: {order.shippingDetails?.phone || 'No Contact'}</p>
                   </div>
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-5 flex items-center gap-2 italic"><CreditCard size={12}/> Payment Details</p>
-                  <div className="text-[11px] font-bold text-slate-600 dark:text-slate-400 space-y-2 border-l-2 border-slate-200 dark:border-slate-800 pl-4">
-                    <p className="uppercase text-slate-900 dark:text-white font-black">{order.paymentMethod || 'Method Pending'}</p>
-                    <p className="text-[9px] text-slate-400 font-medium tracking-[0.2em] leading-tight uppercase">Ref: {order.paymentId}</p>
-                    <p className="text-[9px] text-slate-400 font-medium italic mt-4">Verified via {order.paymentMethod}</p>
+                  <p className="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-5 flex items-center gap-2 italic"><CreditCard size={12}/> Payment Details</p>
+                  <div className="text-[11px] font-bold text-neutral-600 dark:text-neutral-400 space-y-2 border-l-2 border-neutral-200 dark:border-neutral-800 pl-4">
+                    <p className="uppercase text-neutral-900 dark:text-white font-black">{order.paymentMethod || 'Method Pending'}</p>
+                    <p className="text-[9px] text-neutral-400 font-medium tracking-[0.2em] leading-tight uppercase">Ref: {order.paymentId}</p>
+                    <p className="text-[9px] text-neutral-400 font-medium italic mt-4">Verified via {order.paymentMethod}</p>
                   </div>
                 </div>
               </div>
@@ -264,26 +264,26 @@ const RetailOrderCard = ({ order, isExpanded, onToggle, renderImage }) => {
 };
 
 const B2BOrderCard = ({ inquiry }) => (
-  <div className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm border-l-8 border-l-emerald-500 hover:shadow-lg transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
+  <div className="bg-white dark:bg-neutral-900 p-6 rounded-[2.5rem] border border-neutral-100 dark:border-neutral-800 shadow-sm border-l-8 border-l-amber-500 hover:shadow-lg transition-all flex flex-col md:flex-row md:items-center justify-between gap-6">
     <div className="flex-1">
       <div className="flex items-center gap-2 mb-2">
-          <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest bg-emerald-50 dark:bg-emerald-900/20 px-2 py-0.5 rounded-md">{inquiry.category}</span>
-          <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1 italic"><Clock size={10} /> {new Date(inquiry.createdAt).toLocaleDateString()}</span>
+          <span className="text-[9px] font-black text-amber-600 uppercase tracking-widest bg-amber-50 dark:bg-amber-900/20 px-2 py-0.5 rounded-md">{inquiry.category}</span>
+          <span className="text-[10px] font-bold text-neutral-400 flex items-center gap-1 italic"><Clock size={10} /> {new Date(inquiry.createdAt).toLocaleDateString()}</span>
       </div>
-      <h3 className="font-black text-slate-950 dark:text-white text-xl uppercase tracking-tighter leading-none mb-2">{inquiry.companyName || 'Corporate Prospect'}</h3>
-      <p className="text-slate-500 dark:text-slate-400 text-xs italic line-clamp-1 border-l-2 border-slate-200 dark:border-slate-700 pl-3">"{inquiry.message}"</p>
+      <h3 className="font-black text-neutral-950 dark:text-white text-xl uppercase tracking-tighter leading-none mb-2">{inquiry.companyName || 'Corporate Prospect'}</h3>
+      <p className="text-neutral-500 dark:text-neutral-400 text-xs italic line-clamp-1 border-l-2 border-neutral-200 dark:border-neutral-700 pl-3">"{inquiry.message}"</p>
     </div>
-    <div className="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center text-emerald-500 border border-emerald-100 dark:border-emerald-800 flex-shrink-0">
+    <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/30 flex items-center justify-center text-amber-500 border border-amber-100 dark:border-amber-800 flex-shrink-0">
         <Briefcase size={24} />
     </div>
   </div>
 );
 
 const EmptyState = ({ icon, title, subtitle }) => (
-  <div className="bg-white dark:bg-slate-900 py-24 rounded-[3.5rem] border-2 border-dashed border-slate-100 dark:border-slate-800 flex flex-col items-center text-center px-6">
-    <div className="text-slate-200 dark:text-slate-800 mb-6">{icon}</div>
-    <h3 className="text-2xl font-black text-slate-950 dark:text-white uppercase italic tracking-tighter mb-2 leading-none">{title}</h3>
-    <p className="text-slate-400 text-sm max-w-sm font-medium leading-relaxed">{subtitle}</p>
+  <div className="bg-white dark:bg-neutral-900 py-24 rounded-[3.5rem] border-2 border-dashed border-neutral-100 dark:border-neutral-800 flex flex-col items-center text-center px-6">
+    <div className="text-neutral-200 dark:text-neutral-800 mb-6">{icon}</div>
+    <h3 className="text-2xl font-black text-neutral-950 dark:text-white uppercase italic tracking-tighter mb-2 leading-none">{title}</h3>
+    <p className="text-neutral-400 text-sm max-w-sm font-medium leading-relaxed">{subtitle}</p>
   </div>
 );
 

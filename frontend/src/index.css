@@ -1,16 +1,45 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* 1. Force the dark variant to work whenever the 'dark' class is present */
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
+
   /* 2. Set default background colors so the page isn't white by default */
   .dark body {
-    background-color: #0f172a; /* Slate 900 */
-    color: #f8fafc;           /* Slate 50 */
+    background-color: #0a0a0a;
+    /* Neutral 950 */
+    color: #fafafa;
+    /* Neutral 50 */
   }
 
   body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     @apply transition-colors duration-300 antialiased;
+  }
+
+  /* Custom scrollbar with amber accent */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d97706;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: inherit;
   }
 }

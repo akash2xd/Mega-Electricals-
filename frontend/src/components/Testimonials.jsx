@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: "Aman Gupta",
     role: "Architect",
-    text: "The selection of luxury lighting at Bishnupriya Electrical is unmatched. I always source my project fixtures from here for their quality and durability.",
+    text: "The selection of luxury lighting at Mega Electricals is unmatched. I always source my project fixtures from here for their quality and durability.",
     rating: 5,
     avatar: "https://i.pravatar.cc/150?u=aman"
   },
@@ -31,29 +31,29 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500 overflow-hidden">
+    <section className="py-24 bg-stone-50 dark:bg-neutral-950 transition-colors duration-500 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        
-        {/* Harold-Style Header */}
+
+        {/* Header */}
         <div className="flex flex-col items-center mb-20 text-center">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-600 dark:text-emerald-500 text-[10px] font-black uppercase tracking-[0.5em] mb-4"
+            className="text-amber-600 dark:text-amber-500 text-[10px] font-black uppercase tracking-[0.5em] mb-4"
           >
             Voices of Trust
           </motion.p>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl lg:text-4xl font-light text-slate-900 dark:text-white uppercase tracking-tighter"
+            className="text-3xl lg:text-4xl font-light text-neutral-900 dark:text-white uppercase tracking-tighter"
           >
-            Client <span className="font-black italic text-emerald-600 dark:text-emerald-500">Perspectives</span>
+            Client <span className="font-black italic text-amber-500">Perspectives</span>
           </motion.h2>
-          <div className="w-16 h-px bg-slate-200 dark:bg-slate-800 mt-8" />
+          <div className="w-16 h-px bg-stone-200 dark:bg-neutral-800 mt-8" />
         </div>
 
         {/* Testimonials Grid */}
@@ -69,23 +69,23 @@ const Testimonials = () => {
             >
               {/* Elegant Quote Icon */}
               <div className="mb-8">
-                <Quote 
-                  size={32} 
-                  className="text-slate-200 dark:text-slate-800 group-hover:text-emerald-500/20 transition-colors duration-500" 
-                  strokeWidth={1} 
+                <Quote
+                  size={32}
+                  className="text-stone-200 dark:text-neutral-800 group-hover:text-amber-500/20 transition-colors duration-500"
+                  strokeWidth={1}
                 />
               </div>
 
-              {/* Rating - Minimalist */}
+              {/* Rating */}
               <div className="flex gap-1 mb-6">
                 {[...Array(item.rating)].map((_, i) => (
-                  <Star key={i} size={12} className="text-emerald-600 dark:text-emerald-500 fill-current" />
+                  <Star key={i} size={12} className="text-amber-500 fill-current" />
                 ))}
               </div>
 
               {/* Content */}
               <div className="relative mb-10">
-                <p className="text-slate-600 dark:text-slate-400 font-light leading-relaxed italic text-base lg:text-lg">
+                <p className="text-neutral-600 dark:text-neutral-400 font-light leading-relaxed italic text-base lg:text-lg">
                   "{item.text}"
                 </p>
               </div>
@@ -93,18 +93,18 @@ const Testimonials = () => {
               {/* Author Info */}
               <div className="mt-auto flex flex-col items-center">
                 <div className="relative mb-4">
-                  <img 
-                    src={item.avatar} 
-                    alt={item.name} 
-                    className="w-14 h-14 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 border border-slate-100 dark:border-slate-800"
+                  <img
+                    src={item.avatar}
+                    alt={item.name}
+                    className="w-14 h-14 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 border border-stone-200 dark:border-neutral-800"
                   />
-                  <div className="absolute inset-0 rounded-full border border-emerald-500/0 group-hover:border-emerald-500/50 scale-125 transition-all duration-700" />
+                  <div className="absolute inset-0 rounded-full border border-amber-500/0 group-hover:border-amber-500/50 scale-125 transition-all duration-700" />
                 </div>
-                
-                <h4 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest mb-1">
+
+                <h4 className="text-sm font-black text-neutral-900 dark:text-white uppercase tracking-widest mb-1">
                   {item.name}
                 </h4>
-                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">
+                <p className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-[0.2em]">
                   {item.role}
                 </p>
               </div>

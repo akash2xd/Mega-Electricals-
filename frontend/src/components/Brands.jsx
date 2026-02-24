@@ -59,17 +59,15 @@ function BrandItem({ brand }) {
             referrerPolicy="no-referrer"
             className={[
               "max-h-10 md:max-h-12 max-w-[170px] w-auto object-contain",
-              // Mobile: Full color and opacity by default
-              "grayscale-0 opacity-100", 
-              // Desktop (md and up): Grayscale and lower opacity, color on hover
-              "md:grayscale md:opacity-60 md:group-hover:grayscale-0 md:group-hover:opacity-100", 
+              "grayscale-0 opacity-100",
+              "md:grayscale md:opacity-60 md:group-hover:grayscale-0 md:group-hover:opacity-100",
               "transition-all duration-300 cursor-pointer",
               brand.darkInvert ? "dark:brightness-0 dark:invert" : "",
             ].join(" ")}
             onError={() => setFailed(true)}
           />
         ) : (
-          <span className="text-sm md:text-base font-semibold tracking-wide text-gray-400 dark:text-gray-500 uppercase select-none">
+          <span className="text-sm md:text-base font-semibold tracking-wide text-neutral-400 dark:text-neutral-500 uppercase select-none">
             {brand.name}
           </span>
         )}
@@ -82,16 +80,16 @@ const Brands = () => {
   const loopLogos = useMemo(() => [...brandLogos, ...brandLogos], []);
 
   return (
-    <section className="py-10 bg-white dark:bg-slate-900 overflow-hidden transition-colors duration-300 border-b border-gray-100 dark:border-slate-800">
+    <section className="py-10 bg-stone-50 dark:bg-neutral-900 overflow-hidden transition-colors duration-300 border-b border-stone-200 dark:border-neutral-800">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <h2 className="font-bold dark:text-white uppercase tracking-widest text-slate-400 text-sm">
+        <h2 className="font-bold dark:text-white uppercase tracking-widest text-neutral-400 text-sm">
           Trusted by Industry Leaders
         </h2>
       </div>
 
       <div className="relative w-full overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-stone-50 dark:from-neutral-900 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-stone-50 dark:from-neutral-900 to-transparent z-10 pointer-events-none" />
 
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
